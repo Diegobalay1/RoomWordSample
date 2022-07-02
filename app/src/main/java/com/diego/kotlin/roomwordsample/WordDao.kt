@@ -1,6 +1,7 @@
 package com.diego.kotlin.roomwordsample
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 /**
  * DAO: (Objeto de Acceso a los Datos)
@@ -13,7 +14,7 @@ import androidx.room.*
 interface WordDao {
 
     @Query("SELECT * FROM word_table ORDER BY word ASC")//Busqueda que  muestra una lista de palabras ordenadas de forma ascendente.
-    fun getAlphabetizedWords(): List<Word>
+    fun getAlphabetizedWords(): Flow<List<Word>>//Un flujo es una secuencia asíncrona de valores. Flow produce valores de a uno. Admite corrutinas en toda su API.
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)//ignora palabra nueva si es exactamente la misma que una que ya esté en la lista
     suspend fun insert(word: Word)
