@@ -13,13 +13,15 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface WordDao {
 
-    @Query("SELECT * FROM word_table ORDER BY word ASC")//Busqueda que  muestra una lista de palabras ordenadas de forma ascendente.
-    fun getAlphabetizedWords(): Flow<List<Word>>//Un flujo es una secuencia asíncrona de valores. Flow produce valores de a uno. Admite corrutinas en toda su API.
+    @Query("SELECT * FROM word_table ORDER BY word ASC")
+    fun getAlphabetizedWords(): Flow<List<Word>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)//ignora palabra nueva si es exactamente la misma que una que ya esté en la lista
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(word: Word)
 
-    @Query("DELETE FROM word_table")//consulta de SQL como parámetro de string para borrar todas las palabras.
+    @Query("DELETE FROM word_table")
     suspend fun deleteAll()
+    /*@Delete
+    suspend fun deleteAll()*/
 
 }
