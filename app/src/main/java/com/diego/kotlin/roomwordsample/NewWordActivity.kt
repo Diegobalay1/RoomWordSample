@@ -21,10 +21,12 @@ class NewWordActivity : AppCompatActivity() {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editWordView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
+                finish()
             } else {
                 val word = editWordView.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY, word)
                 setResult(Activity.RESULT_OK, replyIntent)
+                finish()
             }
         }
     }
