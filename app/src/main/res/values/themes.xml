@@ -23,4 +23,13 @@
         <item name="android:textAppearance">@android:style/TextAppearance.Large</item>
     </style>
 
+    <style name="word_item">
+        <item name="android:background">@android:color/holo_orange_light</item>
+        <item name="android:padding">@dimen/middle_padding</item>
+    </style>
+
+    <style name="word_text">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

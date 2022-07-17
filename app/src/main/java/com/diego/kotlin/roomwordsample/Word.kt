@@ -12,4 +12,5 @@ import androidx.room.PrimaryKey
  * ..el valor predeterminado de Kotlin.
  */
 @Entity(tableName = "word_table")
-data class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String)
+data class Word(@PrimaryKey @ColumnInfo(name = "word") val word: String,
+                val description: String?)

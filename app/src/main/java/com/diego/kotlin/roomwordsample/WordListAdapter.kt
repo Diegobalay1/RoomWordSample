@@ -20,7 +20,7 @@ class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsC
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current.word)
+        holder.bind(current.word, current.description)
     }
 
     /**
@@ -29,9 +29,11 @@ class WordListAdapter : ListAdapter<Word, WordListAdapter.WordViewHolder>(WordsC
      */
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val wordItemView: TextView = itemView.findViewById(R.id.textView)
+        private val wordItemDescriptionView: TextView = itemView.findViewById(R.id.textView2)
 
-        fun bind(text: String?) {
+        fun bind(text: String?, text2: String?) {
             wordItemView.text = text
+            wordItemDescriptionView.text = text2
         }
 
         companion object {

@@ -10,11 +10,13 @@ import android.widget.EditText
 
 class NewWordActivity : AppCompatActivity() {
     private lateinit var editWordView: EditText
+    private lateinit var editWordView2: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_word)
         editWordView = findViewById(R.id.edit_word)
+        editWordView2 = findViewById(R.id.edit_word2)
 
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
@@ -24,7 +26,9 @@ class NewWordActivity : AppCompatActivity() {
                 finish()
             } else {
                 val word = editWordView.text.toString()
+                val word2 = editWordView2.text.toString()
                 replyIntent.putExtra(EXTRA_REPLY, word)
+                replyIntent.putExtra(EXTRA_REPLY2, word2)
                 setResult(Activity.RESULT_OK, replyIntent)
                 finish()
             }
@@ -33,5 +37,6 @@ class NewWordActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY2 = "com.example.android.wordlistsql.REPLY2"
     }
 }
